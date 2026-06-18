@@ -1,102 +1,209 @@
-Sonar-Share: AI-Driven Air-Gapped Acoustic Communication System
-===============================================================
+# 🔊 SonarShare
 
-Overview
---------
+### AI-Driven Air-Gapped Acoustic Communication System
 
-Sonar-Share is a modular, production-grade prototype for securely transmitting
-encrypted data over an **acoustic-only** channel (speaker → air → microphone)
-without any use of WiFi, Bluetooth, NFC, or RF communication.
+SonarShare is an innovative communication platform that enables secure data exchange through sound waves, allowing devices to communicate without relying on Wi-Fi, Bluetooth, cellular networks, or internet connectivity.
 
-Core capabilities:
-- Encrypted FSK-based data transmission around 9 kHz
-- Text, coordinates, and small file (\<10 KB) transfer
-- Adaptive AI-like engine for noise-aware transmission
-- Basic forward error detection and packet integrity checks
-- Clean, extensible Python 3.11+ architecture
+🏆 **1st Position Winner – Idea to Impact 2026**
 
-Project Structure
------------------
+---
 
-- `main.py` — CLI entrypoint for transmitter/receiver modes.
-- `encoder.py` — Symbol mapping, packetization, FSK tone sequence generation.
-- `decoder.py` — Audio FFT analysis, symbol detection, packet reconstruction.
-- `crypto.py` — AES-256-CBC encryption/decryption utilities and key handling.
-- `ai_engine.py` — Adaptive logic (noise analysis, frequency/threshold tuning).
-- `transmitter.py` — High-level transmit pipeline using sounddevice.
-- `receiver.py` — High-level receive pipeline using sounddevice.
-- `config.py` — Shared configuration (sample rates, symbol durations, etc.).
-- `logging_utils.py` — Central logging and debug-mode helpers.
-- `gui.py` — Professional PyQt6 desktop GUI application.
+## 🌟 Overview
 
-Getting Started
----------------
+Traditional communication systems depend heavily on radio-frequency technologies such as Wi-Fi, Bluetooth, and cellular networks. In restricted, disconnected, or air-gapped environments, these technologies may be unavailable or undesirable.
 
-### Option 1: GUI Application (Recommended)
+SonarShare explores an alternative communication paradigm by utilizing acoustic signals to transmit information between nearby devices. The system is designed to operate in environments where conventional communication methods are limited, restricted, or unavailable.
 
-Launch the graphical interface:
+---
 
-```bash
-python gui.py
+## 🚀 Key Features
+
+### 🔊 Acoustic Data Transmission
+
+* Transfer information using sound waves.
+* No Wi-Fi required.
+* No Bluetooth pairing required.
+* No internet dependency.
+
+### 🔒 Air-Gapped Communication
+
+* Operates without traditional network connections.
+* Suitable for isolated environments.
+* Reduces dependency on external infrastructure.
+
+### 🤖 AI-Assisted Signal Processing
+
+* Adaptive signal analysis.
+* Noise-aware transmission.
+* Intelligent decoding assistance.
+* Enhanced communication reliability.
+
+### ⚡ Lightweight & Efficient
+
+* Minimal resource consumption.
+* Fast device-to-device communication.
+* Low-overhead implementation.
+
+### 🔐 Privacy-Oriented Design
+
+* No cloud dependency.
+* Local-first communication model.
+* User-controlled data exchange.
+
+---
+
+## 🏗️ System Architecture
+
+```text
+Sender Device
+      │
+      ▼
+Data Encoding Engine
+      │
+      ▼
+Acoustic Transmission Layer
+      │
+      ▼
+Microphone Receiver
+      │
+      ▼
+Signal Processing Engine
+      │
+      ▼
+Data Reconstruction
 ```
 
-The GUI provides:
-- **Send Mode**: Enter text, coordinates, or select files (<10 KB)
-- **Receive Mode**: Start listening and view decrypted output
-- **Real-time Status**: AI engine metrics, encryption status, signal confidence
-- **Logs Panel**: Detailed transmission/reception logs
+---
 
-**Usage:**
-1. Enter encryption password in the password field
-2. For sending: Enter text/coordinates or select a file, then click the appropriate send button
-3. For receiving: Set listen duration and click "Start Listening"
-4. View decrypted output, confidence scores, and detected frequencies in real-time
+## 🛠️ Technology Stack
 
-### Option 2: Command-Line Interface
+### Frontend
 
-1. **Install dependencies** (Python 3.11+ recommended):
+* HTML
+* CSS
+* JavaScript
 
-   ```bash
-   pip install -r requirements.txt
-   ```
+### Signal Processing
 
-2. **Run transmitter** (example text message):
+* Web Audio API
+* FFT Analysis
+* Frequency Detection
 
-   ```bash
-   python main.py transmit --mode text --message "HELLO SONAR" --password "strong-pass"
-   ```
+### Future Enhancements
 
-3. **Run receiver** (on another machine or the same one with mic input):
+* Python Signal Processing
+* AI-Based Noise Classification
+* Adaptive Frequency Hopping
+* Error Correction Algorithms
+* End-to-End Encryption
 
-   ```bash
-   python main.py receive --mode text --password "strong-pass"
-   ```
+---
 
-4. **File transfer \<10 KB**:
+## 🎯 Potential Applications
 
-   ```bash
-   python main.py transmit --mode file --file-path small.bin --password "strong-pass"
-   python main.py receive --mode file --password "strong-pass" --output-dir received_files
-   ```
+### 🏢 Air-Gapped Environments
 
-Security Notes
---------------
+Secure communication where network access is restricted.
 
-- All payloads (text, coordinates, files) are encrypted using AES-256 in CBC mode.
-- The IV is freshly generated per message and sent in the encrypted header.
-- No networking or socket APIs are used; the only channel is sound.
+### 🛰️ Low-Connectivity Regions
 
-Limitations & Tuning
---------------------
+Communication without dependence on infrastructure.
 
-- This is a **production-grade prototype**, not a turnkey product. You may need
-  to tune symbol duration, gain, and thresholds depending on your hardware.
-- Real-world performance depends on room acoustics, background noise, and
-  microphone/speaker quality.
+### 📱 Device Pairing
 
-License
--------
+Quick configuration sharing between nearby devices.
 
-This project is provided as-is for research, experimentation, and educational
-purposes. Review and adapt the code before using it in production environments.
+### 🔧 Industrial Systems
 
+Offline data transfer between isolated devices.
+
+### 🆘 Emergency Scenarios
+
+Short-range communication when conventional systems are unavailable.
+
+---
+
+## ✨ Future Roadmap
+
+* Adaptive Frequency Hopping
+* Reed-Solomon Error Correction
+* AES Encryption Layer
+* Multi-Device Acoustic Networking
+* AI-Based Signal Optimization
+* Cross-Platform Native Applications
+* Real-Time Noise Classification
+
+---
+
+## 📷 Screenshots
+
+Add screenshots of:
+
+* Sender Interface
+* Receiver Interface
+* Signal Visualization
+* Frequency Detection Dashboard
+* Transmission Logs
+
+Example:
+
+```text
+assets/screenshots/sender.png
+assets/screenshots/receiver.png
+assets/screenshots/dashboard.png
+```
+
+---
+
+## ⚙️ Installation
+
+Clone the repository:
+
+```bash
+git clone https://github.com/PRINCE045/SonarShare.git
+```
+
+Navigate to project directory:
+
+```bash
+cd SonarShare
+```
+
+Run the project:
+
+```bash
+Open index.html in your browser
+```
+
+or
+
+```bash
+npm install
+npm start
+```
+
+(Modify according to your actual project setup.)
+
+---
+
+## 🏆 Achievements
+
+* 🥇 1st Position – Idea to Impact 2026
+* 💡 Patent-Level Innovation Concept
+* 🤖 Smart Technology & Artificial Intelligence Domain
+
+---
+
+## 👨‍💻 Developer
+
+**Prince Yadav**
+
+B.Tech – Artificial Intelligence & Machine Learning
+
+Focused on AI, communication systems, cybersecurity, and innovative problem-solving.
+
+---
+
+## 📜 License
+
+This project is released for educational, research, and innovation purposes.
